@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, session, redirect
 import mysql.connector
 
+# Installation maybe required
+# flask
+# pip install mysql-connector-python
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
@@ -23,7 +27,7 @@ def signup():
 @app.route('/register', methods=['POST'])
 def register():
     # Get the form data
-    username = request.form['usernam']
+    username = request.form['username']
     password = request.form['password']
     name = request.form['name']
 
