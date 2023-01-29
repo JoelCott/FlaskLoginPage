@@ -5,10 +5,10 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Connect to the database
-cnx = mysql.connector.connect(user='your_username',
-                              password='your_password',
-                              host='your_host',
-                              database='your_database')
+cnx = mysql.connector.connect(user='root',
+                              password='123123',
+                              host='localhost',
+                              database='test')
 
 @app.route('/')
 def index():
@@ -23,7 +23,7 @@ def signup():
 @app.route('/register', methods=['POST'])
 def register():
     # Get the form data
-    username = request.form['username']
+    username = request.form['usernam']
     password = request.form['password']
     name = request.form['name']
 
