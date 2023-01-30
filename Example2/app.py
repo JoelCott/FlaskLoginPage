@@ -5,21 +5,21 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Connect to the database
-cnx = mysql.connector.connect(user='your_username',
-                              password='your_password',
-                              host='your_host',
-                              database='your_database')
+cnx = mysql.connector.connect(user='root',
+                              password='123123',
+                              host='localhost',
+                              database='test')
 
 @app.route('/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
 @app.route('/login', methods=['POST'])
 def login():
     # Get the user's input from the form
     username = request.form['username']
     password = request.form['password']
-
+    
     # Create a cursor
     cursor = cnx.cursor()
 
@@ -35,9 +35,14 @@ def login():
         session['username'] = username
         return redirect('/dashboard')
 
-    # If the user doesn't exist, redirect to the login page
+    # If the user doesn't exist, redirect to the Registeartion page
     else:
-        return redirect('/')
+        return redirect('/Registration')
+
+@app.route('/Registration',methods=['POST'])
+def Registration():
+    return render_template('Registration.html')
+    #return redirect('/')
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -60,5 +65,13 @@ def dashboard():
     else:
         return redirect('/')
 
+@app.route('/logout')
+def logout():
+    return redirect('/')
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+# Resources 
+# https://freefrontend.com/css-login-forms/
