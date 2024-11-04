@@ -6,9 +6,9 @@ app.secret_key = 'your_secret_key'
 
 # Connect to the database
 cnx = mysql.connector.connect(user='root',
-                              password='123123',
+                              password='Peugeot108JC#',
                               host='localhost',
-                              database='test')
+                              database='ai_resources')
 
 @app.route('/')
 def home():

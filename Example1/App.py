@@ -5,10 +5,10 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # Connect to the database
-cnx = mysql.connector.connect(user='your_username',
-                              password='your_password',
-                              host='your_host',
-                              database='your_database')
+cnx = mysql.connector.connect(user='root',
+                              password='Peugeot108JC#',
+                              host='localhost',
+                              database='ai_resources')
 
 @app.route('/')
 def index():
